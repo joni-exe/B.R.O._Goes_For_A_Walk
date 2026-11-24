@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsnxcjkoxcjhr"]
+
+[ext_resource type="PackedScene" uid="uid://c7t6m48rbo1mq" path="res://Scenes/Boobrie_enemy.tscn" id="1_ng0s0"]
+[ext_resource type="PackedScene" uid="uid://54mft55cq5kp" path="res://Scenes/player.tscn" id="2_g5cw1"]
+
+[node name="level3" type="Node2D" unique_id=1417634903]
+
+[node name="Boobrie" parent="." unique_id=2000892319 instance=ExtResource("1_ng0s0")]
+position = Vector2(-124, -225)
+
+[node name="Boobrie2" parent="." unique_id=236785007 instance=ExtResource("1_ng0s0")]
+position = Vector2(8, -240)
+
+[node name="Boobrie3" parent="." unique_id=1315856932 instance=ExtResource("1_ng0s0")]
+position = Vector2(346, -534)
+
+[node name="Boobrie4" parent="." unique_id=498063863 instance=ExtResource("1_ng0s0")]
+position = Vector2(456, -525)
+
+[node name="Boobrie5" parent="." unique_id=1034761771 instance=ExtResource("1_ng0s0")]
+position = Vector2(499, -269)
+
+[node name="Boobrie6" parent="." unique_id=503393622 instance=ExtResource("1_ng0s0")]
+position = Vector2(744, -221)
+
+[node name="Boobrie7" parent="." unique_id=1176609947 instance=ExtResource("1_ng0s0")]
+position = Vector2(-560, 240)
+
+[node name="Boobrie8" parent="." unique_id=803937020 instance=ExtResource("1_ng0s0")]
+position = Vector2(-251, 307)
+
+[node name="Boobrie9" parent="." unique_id=765860684 instance=ExtResource("1_ng0s0")]
+position = Vector2(133, 265)
+
+[node name="Boobrie10" parent="." unique_id=542096314 instance=ExtResource("1_ng0s0")]
+position = Vector2(455, 165)
+
+[node name="Boobrie11" parent="." unique_id=323144916 instance=ExtResource("1_ng0s0")]
+position = Vector2(660, -44)
+
+[node name="player" parent="." unique_id=1634774901 instance=ExtResource("2_g5cw1")]
+position = Vector2(5, 10)

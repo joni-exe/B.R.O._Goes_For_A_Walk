@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cm7cpf0x88t2j"]
+
+[ext_resource type="PackedScene" uid="uid://c7t6m48rbo1mq" path="res://Scenes/Boobrie_enemy.tscn" id="1_vk57k"]
+[ext_resource type="PackedScene" uid="uid://54mft55cq5kp" path="res://Scenes/player.tscn" id="2_8ffim"]
+[ext_resource type="PackedScene" uid="uid://b82t18reqiqdg" path="res://Scenes/level_transporter.tscn" id="3_xfk5q"]
+
+[node name="level1" type="Node2D" unique_id=837520625]
+
+[node name="Boobrie" parent="." unique_id=2000892319 instance=ExtResource("1_vk57k")]
+position = Vector2(-219, -167)
+
+[node name="Boobrie2" parent="." unique_id=249666122 instance=ExtResource("1_vk57k")]
+position = Vector2(67, -216)
+
+[node name="Boobrie3" parent="." unique_id=408579806 instance=ExtResource("1_vk57k")]
+position = Vector2(302, -200)
+
+[node name="Boobrie4" parent="." unique_id=442156120 instance=ExtResource("1_vk57k")]
+position = Vector2(454, -179)
+
+[node name="player" parent="." unique_id=1634774901 instance=ExtResource("2_8ffim")]
+position = Vector2(66, 32)
+
+[node name="level_transporter" parent="." unique_id=1614415788 instance=ExtResource("3_xfk5q")]
+position = Vector2(213, -426)
+level = "res://Scenes/level_2.tscn"

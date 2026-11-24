@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://5882d7cu34ws"]
+
+[ext_resource type="Texture2D" uid="uid://dgveaqlrxmh8g" path="res://Sprites/boobrie.png" id="1_2gih6"]
+[ext_resource type="Script" uid="uid://hks8xhdfm8wp" path="res://Scripts/Enemy_Movement.gd" id="1_3n10a"]
+[ext_resource type="Resource" uid="uid://cmh5o0qny0usu" path="res://Resources/boobrie.tres" id="2_pwoof"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gih6"]
+radius = 38.0
+
+[node name="Enemy1" type="Node2D" unique_id=2101352489]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1626465867]
+script = ExtResource("1_3n10a")
+stats = ExtResource("2_pwoof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1950240057]
+shape = SubResource("CircleShape2D_2gih6")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=979550784]
+position = Vector2(-2, -1)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("1_2gih6")

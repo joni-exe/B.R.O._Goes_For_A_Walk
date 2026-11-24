@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://54mft55cq5kp"]
+
+[ext_resource type="Script" uid="uid://difrqw62s02qc" path="res://Scripts/player.gd" id="1_ypso2"]
+[ext_resource type="Texture2D" uid="uid://c42q24agdxk3i" path="res://Sprites/electric_field.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://d2ybecu22m1w4" path="res://Sprites/tower_mecha.png" id="2_hftcg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
+radius = 33.0
+height = 100.0
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElectricField:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+resource_name = "attack"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElectricField:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
+_data = {
+&"RESET": SubResource("Animation_6t5aa"),
+&"attack": SubResource("Animation_cvnsp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgqql"]
+radius = 74.00676
+
+[node name="player" type="CharacterBody2D" unique_id=1634774901 groups=["player"]]
+position = Vector2(0, -5)
+script = ExtResource("1_ypso2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=750143474]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_cvnsp")
+
+[node name="ElectricField" type="Sprite2D" parent="." unique_id=1576237336]
+visible = false
+position = Vector2(1, 4)
+scale = Vector2(4.9687505, 4.9687505)
+texture = ExtResource("2_6t5aa")
+
+[node name="TowerMecha" type="Sprite2D" parent="." unique_id=787437267]
+position = Vector2(12, 57)
+texture = ExtResource("2_hftcg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1877050630]
+libraries/ = SubResource("AnimationLibrary_6t5aa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=239752470]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=45652161]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_vgqql")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2129456658]
+
+[node name="Timer" type="Timer" parent="." unique_id=974644117]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_player_attack_area_body_entered"]

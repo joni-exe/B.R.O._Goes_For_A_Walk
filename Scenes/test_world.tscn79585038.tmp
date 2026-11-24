@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ceqmj6a2k1ilg"]
+
+[ext_resource type="PackedScene" uid="uid://c7t6m48rbo1mq" path="res://Scenes/Boobrie_enemy.tscn" id="1_au00k"]
+[ext_resource type="PackedScene" uid="uid://54mft55cq5kp" path="res://Scenes/player.tscn" id="1_skmq4"]
+
+[node name="test_world" type="Node2D" unique_id=641487076]
+
+[node name="player" parent="." unique_id=1501267676 instance=ExtResource("1_skmq4")]
+position = Vector2(-37, -31)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1461916833]
+
+[node name="Boobrie" parent="." unique_id=2000892319 node_paths=PackedStringArray("player") instance=ExtResource("1_au00k")]
+position = Vector2(194, -86)
+player = NodePath("../player")
+
+[node name="Boobrie2" parent="." unique_id=627465111 node_paths=PackedStringArray("player") instance=ExtResource("1_au00k")]
+position = Vector2(-228, -159)
+player = NodePath("../player")
